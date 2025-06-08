@@ -9,6 +9,9 @@ async function bootstrap() {
 
   app.setViewEngine('hbs');
   app.setBaseViewsDir(join(__dirname, '../', 'views'));
+  app.useStaticAssets(join(__dirname, '../', 'public'), {
+    prefix: '/public',
+  });
 
   app.use(cookieParser());
 
