@@ -1,11 +1,176 @@
 <!doctype html>
-<html>
+<html lang="en" class="h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
   <link href="./public/main.css" rel="stylesheet">
 </head>
-  <body>
-    <h1 class="text-3xl font-bold underline">Hello world!</h1>
-  </body>
+<body class="h-full bg-rose-50 flex flex-col">
+  <!-- Main Content -->
+  <main class="flex-1 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+    <!-- Hero Section -->
+    <div class="text-center mb-12">
+      <div class="mb-8">
+        <h1 class="text-5xl md:text-6xl font-serif text-rose-800 mb-4">Ena & Churchill</h1>
+        <div class="w-24 h-px bg-rose-300 mx-auto mb-6"></div>
+        <p class="text-xl text-rose-600 font-light">are getting married!</p>
+      </div>
+      
+      <!-- Wedding Details -->
+      <div class="bg-white rounded-lg shadow-lg border border-rose-100 p-8 mb-8">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h2 class="text-2xl font-serif text-rose-800 mb-4">When</h2>
+            <p class="text-lg text-gray-700 mb-2">{{weddingDate}}</p>
+            <p class="text-gray-600">{{weddingTime}}</p>
+          </div>
+          <div>
+            <h2 class="text-2xl font-serif text-rose-800 mb-4">Where</h2>
+            <p class="text-lg text-gray-700 mb-2">{{venueName}}</p>
+            <p class="text-gray-600">{{venueAddress}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RSVP Section -->
+    <div class="bg-white rounded-lg shadow-lg border border-rose-100 p-8 mb-8">
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-serif text-rose-800 mb-4">Please RSVP</h2>
+        <p class="text-gray-600 mb-6">We can't wait to celebrate with you! Please let us know if you'll be joining us.</p>
+      </div>
+
+      <!-- RSVP Form -->
+      <form class="max-w-2xl mx-auto space-y-6">
+        <div>
+          <label for="fullName" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+          <input type="text" id="fullName" name="fullName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500" placeholder="Enter your full name">
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+          <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500" placeholder="your.email@example.com">
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700 mb-4">Will you be attending?</label>
+          <div class="space-y-3">
+            <label class="flex items-center">
+              <input type="radio" name="attending" value="yes" class="text-rose-600 focus:ring-rose-500">
+              <span class="ml-3 text-gray-700">Yes, I'll be there! 🎉</span>
+            </label>
+            <label class="flex items-center">
+              <input type="radio" name="attending" value="no" class="text-rose-600 focus:ring-rose-500">
+              <span class="ml-3 text-gray-700">Sorry, I can't make it 😢</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label for="dietary" class="block text-sm font-medium text-gray-700 mb-2">Dietary Restrictions or Special Requests</label>
+          <textarea id="dietary" name="dietary" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500" placeholder="Please let us know about any dietary restrictions, allergies, or special requests..."></textarea>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message for the Happy Couple</label>
+          <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 focus:border-rose-500" placeholder="Share your well wishes, memories, or excitement for the big day..."></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="bg-rose-600 hover:bg-rose-700 text-white font-medium py-3 px-8 rounded-lg transition duration-200 shadow-lg">
+            Send RSVP
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Additional Info -->
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-white rounded-lg shadow-lg border border-rose-100 p-6">
+        <h3 class="text-xl font-serif text-rose-800 mb-4">Accommodations</h3>
+        <p class="text-gray-600 mb-4">We've reserved a block of rooms at:</p>
+        <p class="font-medium text-gray-700">{{hotelName}}</p>
+        <p class="text-gray-600">{{hotelAddress}}</p>
+        <p class="text-sm text-gray-500 mt-2">Mention "{{coupleLastName}} Wedding" for group rate</p>
+      </div>
+
+      <div class="bg-white rounded-lg shadow-lg border border-rose-100 p-6">
+        <h3 class="text-xl font-serif text-rose-800 mb-4">Registry</h3>
+        <p class="text-gray-600 mb-4">Your presence is the only present we need! But if you'd like to give a gift:</p>
+        <div class="space-y-2">
+          <a href="#" class="block text-rose-600 hover:text-rose-700 underline">{{registryStore1}}</a>
+          <a href="#" class="block text-rose-600 hover:text-rose-700 underline">{{registryStore2}}</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-rose-200 mt-auto">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <!-- Wedding Timeline -->
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-serif text-rose-800 mb-6">Wedding Day Timeline</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-rose-50 rounded-lg p-4">
+            <h4 class="font-semibold text-rose-700 mb-2">4:00 PM</h4>
+            <p class="text-gray-600 text-sm">Ceremony Begins</p>
+          </div>
+          <div class="bg-rose-50 rounded-lg p-4">
+            <h4 class="font-semibold text-rose-700 mb-2">5:30 PM</h4>
+            <p class="text-gray-600 text-sm">Cocktail Hour</p>
+          </div>
+          <div class="bg-rose-50 rounded-lg p-4">
+            <h4 class="font-semibold text-rose-700 mb-2">7:00 PM</h4>
+            <p class="text-gray-600 text-sm">Reception & Dinner</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wedding Party & Important Info -->
+      <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <div class="text-center">
+          <h4 class="text-lg font-serif text-rose-800 mb-4">Dress Code</h4>
+          <p class="text-gray-600 mb-2">Cocktail Attire</p>
+          <p class="text-sm text-gray-500">We suggest garden party elegant - think flowy dresses and light suits</p>
+        </div>
+        <div class="text-center">
+          <h4 class="text-lg font-serif text-rose-800 mb-4">Special Notes</h4>
+          <p class="text-gray-600 mb-2">Unplugged Ceremony</p>
+          <p class="text-sm text-gray-500">Please keep phones and cameras away during the ceremony</p>
+        </div>
+      </div>
+
+      <!-- Love Quote -->
+      <div class="text-center mb-8 py-6 border-t border-b border-rose-200">
+        <blockquote class="text-lg italic text-gray-700 mb-2">
+          "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage."
+        </blockquote>
+        <cite class="text-sm text-rose-600">— Lao Tzu</cite>
+      </div>
+
+      <!-- Contact & Final Details -->
+      <div class="text-center">
+        <p class="text-rose-600 font-serif text-xl mb-2">Ena & Churchill</p>
+        <p class="text-gray-600 mb-2">
+          Questions? Contact us at <a href="mailto:{{contactEmail}}" class="text-rose-600 hover:text-rose-700 underline">{{contactEmail}}</a>
+        </p>
+        <p class="text-gray-500 text-sm mb-4">
+          Wedding Coordinator: <a href="mailto:coordinator@rosewoodmanor.com" class="text-rose-600 hover:text-rose-700">coordinator@rosewoodmanor.com</a>
+        </p>
+        <div class="flex justify-center space-x-6 mb-4">
+          <span class="text-2xl">💕</span>
+          <span class="text-2xl">🌹</span>
+          <span class="text-2xl">💍</span>
+          <span class="text-2xl">🥂</span>
+          <span class="text-2xl">💕</span>
+        </div>
+        <p class="text-gray-400 text-xs">
+          © {{currentYear}} Made with love for our special day ❤️
+        </p>
+      </div>
+    </div>
+  </footer>
+</body>
 </html>
